@@ -21,7 +21,6 @@ const App = () => {
       }
     }).then((currentWeather)=>{
       setWeather(currentWeather);
-      console.log(currentWeather)
     }).catch((error)=>console.log(error));
   };
   useEffect(()=>{
@@ -31,9 +30,10 @@ const App = () => {
   const submitHandler = (e)=>{
     e.preventDefault();
     searchLocation();
+  
   }
   return (
-    <main><div className="container">
+    <main><div className="container" >
     <form onSubmit={submitHandler}>
       <div className="form-control">
         <input 
@@ -52,9 +52,6 @@ const App = () => {
       </div>
       <div className="temp">
       <h1>{weather.main?.temp}°C</h1>
-      </div>
-      <div className="climate">
-        <p>{weather.weather[0]?.description}</p>
       </div>
       <div className="description">
       <div className="feels-like">
