@@ -4,3 +4,68 @@
   outline: none;
   box-sizing: border-box;
 }
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container{
+  width: 300px;
+  height: 600px;
+  border-radius: 15px;
+  background-image:url('https://images.unsplash.com/photo-1558486012-817176f84c6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8d2VhdGhlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+  padding: 2rem;
+}
+input{
+  display: block;
+  margin: 0 auto;
+  width: 10rem;
+  
+  font-size: 1rem;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255,0.4);
+  border: none;
+  color: white;
+}
+form{
+  position: relative;
+}
+input::placeholder{
+  color: white;
+}
+button{
+  position:absolute;
+  top:0.5rem;
+  right: 2.7rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.weather{
+  margin: 5rem auto;
+  text-align: center;
+  position: relative;
+  color: white;
+}
+.location h4{
+  font-size: 2rem;
+}
+.temp h1{
+  text-align: left;
+  top: 0;
+  font-size: 3rem;
+}
+.description{
+  position: relative;
+  top: 14rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0,0.5);
+  border-radius: 8px;
+}
