@@ -3,7 +3,7 @@ import { BsSearch } from "react-icons/bs";
 
 const App = () => {
   const [weather,setWeather] = useState('');
-  const [location,setLocation] = useState('chennai');
+  const [location,setLocation] = useState('Chennai');
   const [ifClicked,setIfClicked] =useState(true)
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location},in&appid=3347adae554746284383ba2d4a7ccb5e&units=metric`
   

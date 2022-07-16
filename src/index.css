@@ -49,6 +49,10 @@ button{
   cursor: pointer;
   font-size: 1.2rem;
 }
+button:hover{
+  opacity: 0.5;
+  background-color: grey;
+}
 .weather{
   margin: 5rem auto;
   text-align: center;
