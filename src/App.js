@@ -3,35 +3,41 @@ import { BsSearch } from "react-icons/bs";
 
 const App = () => {
   const [weather,setWeather] = useState('');
-  const [location,setLocation] = useState('Chennai');
+  const [location,setLocation] = useState('chennai');
+  const [ifClicked,setIfClicked] =useState(true)
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location},in&appid=3347adae554746284383ba2d4a7ccb5e&units=metric`
+  
   const searchLocation = () => {
-    fetch(url).then((resp)=>{
-      if(resp.status >=200 && resp.status <300){
-        return resp.json();
-      }else if(resp.status===404){
-        alert('please enter correct location')
-        throw new Error('Error finding location')
+      fetch(url).then((resp)=>{
+        if(resp.status >=200 && resp.status <300){
+          return resp.json();
+        }else if(resp.status===404){
+          alert('please enter correct location')
+          throw new Error('Error finding location')
+        }
+        else{
+          throw new Error('Error Fetching Data')
+        }
+      }).then((currentWeather)=>{
+        setWeather(currentWeather);
+      }).catch((error)=>console.log(error));
+      setIfClicked(false);
+    }
+    
 
-      }
-      else{
-        throw new Error('Error Fetching Data')
-      }
-    }).then((currentWeather)=>{
-      setWeather(currentWeather);
-    }).catch((error)=>console.log(error));
-  };
-  useEffect(()=>{
-    searchLocation();
-  },[])
+useEffect(()=>{
+  if(ifClicked === true){
+    searchLocation();}
+});
 
   const submitHandler = (e)=>{
     e.preventDefault();
-    searchLocation();
-  
+    setIfClicked(true)
   }
   return (
-    <main><div className="container" >
+    <main>
+      
+      <div className="container" >
     <form onSubmit={submitHandler}>
       <div className="form-control">
         <input 
@@ -42,7 +48,7 @@ const App = () => {
           value={location}
           onChange={(e)=>setLocation(e.target.value)} />
       </div>
-      <button type='submit'><BsSearch/></button>
+      <button type='submit' ><BsSearch/></button>
     </form>
     <section className="weather">
       <div className="location">
